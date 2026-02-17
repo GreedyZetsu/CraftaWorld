@@ -1,4 +1,4 @@
--- [[ ROBLOX UI LIBRARY - V4.0 ULTIMATE MOBILE & SAVE ]] --
+-- [[ ROBLOX UI LIBRARY - V4.0 ULTIMATE ]] --
 local MyUILib = {}
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
@@ -9,7 +9,7 @@ local LocalPlayer = Players.LocalPlayer
 
 -- Config System Logic
 local Config = {}
-local ConfigFileName = "Theme_Config.json"
+local ConfigFileName = "GeminiLib_V4_Config.json"
 
 local function SaveConfig()
     local success, err = pcall(function()
@@ -35,7 +35,7 @@ if LocalPlayer.PlayerGui:FindFirstChild("MySectionLib") then
     LocalPlayer.PlayerGui:FindFirstChild("MySectionLib"):Destroy()
 end
 
--- Custom Dragging Function (Works for Mobile & PC)
+-- Custom Dragging Function
 local function MakeDraggable(frame, handle)
     local dragging, dragInput, dragStart, startPos
     handle.InputBegan:Connect(function(input)
@@ -461,7 +461,7 @@ function MyUILib:CreateWindow(title)
     -- Initial Theme Set
     task.spawn(UpdateTheme)
 
-    -- [[ SETTINGS PAGE ON THE LEFT ]] --
+    -- [[ AUTO-SETTINGS PAGE ]] --
     local SettingsPage = Pages:CreatePage("Settings", true)
     local ThemeSec = SettingsPage:CreateSection("Customization")
     ThemeSec:CreateButton("Cycle Theme Color", function()
@@ -475,3 +475,5 @@ function MyUILib:CreateWindow(title)
 
     return Pages
 end
+
+return MyUILib -- REQUIRED FOR LOADSTRING
