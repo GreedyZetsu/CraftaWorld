@@ -1,4 +1,4 @@
--- [[ ROBLOX UI LIBRARY - V4.0 ULTIMATE (FIXED MINIMIZE) ]] --
+-- [[ ROBLOX UI LIBRARY - V4.0 ULTIMATE (FIXED MINIMIZE LOGIC) ]] --
 local MyUILib = {}
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
