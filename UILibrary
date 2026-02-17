@@ -1,4 +1,4 @@
--- [[ ROBLOX UI LIBRARY - V4.0 ULTIMATE ]] --
+-- [[ ROBLOX UI LIBRARY - V4.0 ULTIMATE (MINIMIZABLE SECTIONS) ]] --
 local MyUILib = {}
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
@@ -196,21 +196,25 @@ function MyUILib:CreateWindow(title)
         local Sections = {}
 
         function Sections:CreateSection(sectionTitle)
+            local isMinimized = false
             local SectionFrame = Instance.new("Frame")
             SectionFrame.Size = UDim2.new(1, 0, 0, 40)
             SectionFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 24)
+            SectionFrame.ClipsDescendants = true
             SectionFrame.Parent = PageFrame
             ApplyDesign(SectionFrame, 8)
             local SecLayout = Instance.new("UIListLayout", SectionFrame)
 
-            local HeaderBox = Instance.new("Frame")
+            local HeaderBox = Instance.new("TextButton")
             HeaderBox.Size = UDim2.new(1, 0, 0, 30)
             HeaderBox.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+            HeaderBox.Text = ""
+            HeaderBox.AutoButtonColor = false
             HeaderBox.Parent = SectionFrame
             ApplyDesign(HeaderBox, 8)
 
             local SectionLabel = Instance.new("TextLabel")
-            SectionLabel.Size = UDim2.new(1, -20, 1, 0)
+            SectionLabel.Size = UDim2.new(1, -40, 1, 0)
             SectionLabel.Position = UDim2.new(0, 10, 0, 0)
             SectionLabel.BackgroundTransparency = 1
             SectionLabel.Text = sectionTitle:upper()
@@ -220,6 +224,16 @@ function MyUILib:CreateWindow(title)
             SectionLabel.TextXAlignment = Enum.TextXAlignment.Left
             SectionLabel.Parent = HeaderBox
             table.insert(sectionLabels, SectionLabel)
+
+            local Arrow = Instance.new("TextLabel")
+            Arrow.Size = UDim2.new(0, 20, 0, 20)
+            Arrow.Position = UDim2.new(1, -25, 0.5, -10)
+            Arrow.BackgroundTransparency = 1
+            Arrow.Text = "-"
+            Arrow.TextColor3 = Color3.fromRGB(200, 200, 200)
+            Arrow.Font = Enum.Font.GothamBold
+            Arrow.TextSize = 18
+            Arrow.Parent = HeaderBox
 
             local ContentContainer = Instance.new("Frame")
             ContentContainer.Size = UDim2.new(1, 0, 0, 0)
@@ -232,10 +246,25 @@ function MyUILib:CreateWindow(title)
             ContentContainer.UIPadding.PaddingRight = UDim.new(0, 10)
             ContentContainer.UIPadding.PaddingBottom = UDim.new(0, 10)
 
-            ContLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
-                ContentContainer.Size = UDim2.new(1, 0, 0, ContLayout.AbsoluteContentSize.Y + 20)
-                SectionFrame.Size = UDim2.new(1, 0, 0, ContentContainer.Size.Y.Offset + 35)
+            local function UpdateSectionSize()
+                if not isMinimized then
+                    local targetSize = ContLayout.AbsoluteContentSize.Y + 45
+                    TweenService:Create(SectionFrame, TweenInfo.new(0.3, Enum.EasingStyle.Quart), {Size = UDim2.new(1, 0, 0, targetSize)}):Play()
+                    Arrow.Rotation = 0
+                    Arrow.Text = "-"
+                else
+                    TweenService:Create(SectionFrame, TweenInfo.new(0.3, Enum.EasingStyle.Quart), {Size = UDim2.new(1, 0, 0, 30)}):Play()
+                    Arrow.Rotation = 90
+                    Arrow.Text = "+"
+                end
+            end
+
+            HeaderBox.MouseButton1Click:Connect(function()
+                isMinimized = not isMinimized
+                UpdateSectionSize()
             end)
+
+            ContLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(UpdateSectionSize)
 
             local Elements = {}
 
@@ -476,4 +505,4 @@ function MyUILib:CreateWindow(title)
     return Pages
 end
 
-return MyUILib -- REQUIRED FOR LOADSTRING
+return MyUILib
