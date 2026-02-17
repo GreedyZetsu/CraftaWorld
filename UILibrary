@@ -1,4 +1,4 @@
--- [[ ROBLOX UI LIBRARY - V4.0 ULTIMATE (MINIMIZABLE SECTIONS) ]] --
+-- [[ ROBLOX UI LIBRARY - V4.0 ULTIMATE (FIXED MINIMIZE) ]] --
 local MyUILib = {}
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
@@ -198,7 +198,7 @@ function MyUILib:CreateWindow(title)
         function Sections:CreateSection(sectionTitle)
             local isMinimized = false
             local SectionFrame = Instance.new("Frame")
-            SectionFrame.Size = UDim2.new(1, 0, 0, 40)
+            SectionFrame.Size = UDim2.new(1, 0, 0, 30)
             SectionFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 24)
             SectionFrame.ClipsDescendants = true
             SectionFrame.Parent = PageFrame
@@ -210,6 +210,7 @@ function MyUILib:CreateWindow(title)
             HeaderBox.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
             HeaderBox.Text = ""
             HeaderBox.AutoButtonColor = false
+            HeaderBox.ZIndex = 5
             HeaderBox.Parent = SectionFrame
             ApplyDesign(HeaderBox, 8)
 
@@ -222,6 +223,7 @@ function MyUILib:CreateWindow(title)
             SectionLabel.Font = Enum.Font.GothamBold
             SectionLabel.TextSize = 11
             SectionLabel.TextXAlignment = Enum.TextXAlignment.Left
+            SectionLabel.ZIndex = 6
             SectionLabel.Parent = HeaderBox
             table.insert(sectionLabels, SectionLabel)
 
@@ -229,15 +231,17 @@ function MyUILib:CreateWindow(title)
             Arrow.Size = UDim2.new(0, 20, 0, 20)
             Arrow.Position = UDim2.new(1, -25, 0.5, -10)
             Arrow.BackgroundTransparency = 1
-            Arrow.Text = "-"
+            Arrow.Text = "▼"
             Arrow.TextColor3 = Color3.fromRGB(200, 200, 200)
             Arrow.Font = Enum.Font.GothamBold
-            Arrow.TextSize = 18
+            Arrow.TextSize = 12
+            Arrow.ZIndex = 6
             Arrow.Parent = HeaderBox
 
             local ContentContainer = Instance.new("Frame")
             ContentContainer.Size = UDim2.new(1, 0, 0, 0)
             ContentContainer.BackgroundTransparency = 1
+            ContentContainer.ZIndex = 4
             ContentContainer.Parent = SectionFrame
             local ContLayout = Instance.new("UIListLayout", ContentContainer)
             ContLayout.Padding = UDim.new(0, 8)
@@ -249,13 +253,11 @@ function MyUILib:CreateWindow(title)
             local function UpdateSectionSize()
                 if not isMinimized then
                     local targetSize = ContLayout.AbsoluteContentSize.Y + 45
-                    TweenService:Create(SectionFrame, TweenInfo.new(0.3, Enum.EasingStyle.Quart), {Size = UDim2.new(1, 0, 0, targetSize)}):Play()
-                    Arrow.Rotation = 0
-                    Arrow.Text = "-"
+                    TweenService:Create(SectionFrame, TweenInfo.new(0.35, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.new(1, 0, 0, targetSize)}):Play()
+                    TweenService:Create(Arrow, TweenInfo.new(0.3), {Rotation = 0}):Play()
                 else
-                    TweenService:Create(SectionFrame, TweenInfo.new(0.3, Enum.EasingStyle.Quart), {Size = UDim2.new(1, 0, 0, 30)}):Play()
-                    Arrow.Rotation = 90
-                    Arrow.Text = "+"
+                    TweenService:Create(SectionFrame, TweenInfo.new(0.35, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.new(1, 0, 0, 30)}):Play()
+                    TweenService:Create(Arrow, TweenInfo.new(0.3), {Rotation = -90}):Play()
                 end
             end
 
@@ -264,7 +266,11 @@ function MyUILib:CreateWindow(title)
                 UpdateSectionSize()
             end)
 
-            ContLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(UpdateSectionSize)
+            ContLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+                if not isMinimized then
+                    UpdateSectionSize()
+                end
+            end)
 
             local Elements = {}
 
