@@ -1,0 +1,222 @@
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+
+-- [[ MODULES & MANAGERS ]] --
+local movement = require(Players.LocalPlayer.PlayerScripts:WaitForChild("PlayerMovement"))
+local WorldTilesData = require(ReplicatedStorage:WaitForChild("WorldTiles"))
+
+local player = Players.LocalPlayer
+local TILE_SIZE = 4.5
+
+-- [[ STATE & CONFIG ]] --
+_G.AUTO_COLLECT_ENABLED = false
+_G.COLLECT_MODE = "Player" 
+local STEP_INTERVAL = 0.15
+local MAX_SEARCH_STEPS = 400 
+local isBotMoving = false 
+
+-- [[ UI COLOR PALETTE ]] --
+local STROKE_COLOR = Color3.fromHex("2D6597")
+local COLOR_TOP = Color3.fromHex("3F7CEB")
+local COLOR_BOTTOM = Color3.fromHex("79EBFD")
+local WHITE_COLOR = Color3.fromHex("FFFFFF")
+
+--------------------------------------------------------------------------------
+-- TILE ANALYSIS & FILTERING
+--------------------------------------------------------------------------------
+local function to2D(v3) 
+    return Vector2.new(math.round(v3.X/TILE_SIZE), math.round(v3.Y/TILE_SIZE)) 
+end
+
+local function isOccupied(tx, ty)
+    local xTable = WorldTilesData[tx]
+    return (xTable and xTable[ty] and xTable[ty][1]) and true or false
+end
+
+local function isDropCollectable(tx, ty)
+    if isOccupied(tx, ty) then return false end
+    local neighbors = {{tx + 1, ty}, {tx - 1, ty}, {tx, ty + 1}, {tx, ty - 1}}
+    local blockedSides = 0
+    for _, n in ipairs(neighbors) do
+        if isOccupied(n[1], n[2]) then blockedSides = blockedSides + 1 end
+    end
+    return blockedSides < 4
+end
+
+--------------------------------------------------------------------------------
+-- A* PATHFINDING CORE
+--------------------------------------------------------------------------------
+local function getNeighbors(pos)
+    local neighbors = {}
+    local directions = {Vector2.new(0,1), Vector2.new(0,-1), Vector2.new(1,0), Vector2.new(-1,0)}
+    for _, dir in ipairs(directions) do
+        local neighbor = pos + dir
+        if not isOccupied(neighbor.X, neighbor.Y) then table.insert(neighbors, neighbor) end
+    end
+    return neighbors
+end
+
+local function getDistance(a, b)
+    return math.abs(a.X - b.X) + math.abs(a.Y - b.Y)
+end
+
+local function findPath(start, goal)
+    if start == goal then return {start} end
+    local openSet = {start}
+    local cameFrom, gScore, fScore = {}, {[start] = 0}, {[start] = getDistance(start, goal)}
+    local steps = 0
+    while #openSet > 0 do
+        steps = steps + 1
+        if steps > MAX_SEARCH_STEPS then return nil end
+        local current = openSet[1]
+        local currentIndex = 1
+        for i, node in ipairs(openSet) do
+            if fScore[node] < fScore[current] then current, currentIndex = node, i end
+        end
+        if current == goal then
+            local path = {}
+            while current do table.insert(path, 1, current); current = cameFrom[current] end
+            return path
+        end
+        table.remove(openSet, currentIndex)
+        for _, neighbor in ipairs(getNeighbors(current)) do
+            local tentativeG = gScore[current] + 1
+            if not gScore[neighbor] or tentativeG < gScore[neighbor] then
+                cameFrom[neighbor], gScore[neighbor] = current, tentativeG
+                fScore[neighbor] = tentativeG + getDistance(neighbor, goal)
+                if not table.find(openSet, neighbor) then table.insert(openSet, neighbor) end
+            end
+        end
+    end
+    return nil
+end
+
+--------------------------------------------------------------------------------
+-- TARGETING & EXECUTION
+--------------------------------------------------------------------------------
+local function getValidTarget()
+    local drops = workspace.Drops:GetChildren()
+    local candidates = {}
+    local hb = workspace.Hitbox:FindFirstChild("Hsyauzn")
+    if not hb then return nil end
+    local pPos = to2D(hb.Position)
+    
+    for _, d in ipairs(drops) do
+        if d:IsA("BasePart") then
+            local dPos = to2D(d.Position)
+            if isDropCollectable(dPos.X, dPos.Y) then
+                if _G.COLLECT_MODE == "Player" then
+                    if math.abs(dPos.X - pPos.X) <= 2 and math.abs(dPos.Y - pPos.Y) <= 2 then
+                        table.insert(candidates, d)
+                    end
+                else
+                    table.insert(candidates, d)
+                end
+            end
+        end
+    end
+    if #candidates == 0 then return nil end
+    table.sort(candidates, function(a, b) return a.Position.Y > b.Position.Y end)
+    return candidates[1]
+end
+
+local function executePath(path)
+    if not path or #path < 2 then return end
+    isBotMoving = true
+    for i = 2, #path do
+        if not _G.AUTO_COLLECT_ENABLED then break end
+        local nextStep = path[i]
+        local targetPos = Vector3.new(nextStep.X * TILE_SIZE, nextStep.Y * TILE_SIZE, 0)
+        movement.Position, movement.OldPosition = targetPos, targetPos
+        movement.VelocityX, movement.VelocityY = 0, 0
+        task.wait(STEP_INTERVAL)
+    end
+    isBotMoving = false
+end
+
+--------------------------------------------------------------------------------
+-- UI CONSTRUCTION
+--------------------------------------------------------------------------------
+local screenGui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+screenGui.Name = "ReturnCollectUI"
+screenGui.ResetOnSpawn = false
+
+local mainFrame = Instance.new("Frame", screenGui)
+mainFrame.Size, mainFrame.Position = UDim2.new(0, 200, 0, 80), UDim2.new(0.5, -100, 0.85, -40)
+mainFrame.BackgroundColor3, mainFrame.Active, mainFrame.Draggable = WHITE_COLOR, true, true
+Instance.new("UICorner", mainFrame).CornerRadius = UDim.new(0, 12)
+Instance.new("UIStroke", mainFrame).Color, Instance.new("UIStroke", mainFrame).Thickness = STROKE_COLOR, 3
+
+local grad = Instance.new("UIGradient", mainFrame)
+grad.Color, grad.Rotation = ColorSequence.new(COLOR_TOP, COLOR_BOTTOM), 90
+
+local toggleBtn = Instance.new("TextButton", mainFrame)
+toggleBtn.Size, toggleBtn.Position = UDim2.new(1, -10, 0, 30), UDim2.new(0, 5, 0, 5)
+toggleBtn.BackgroundColor3, toggleBtn.Text = Color3.new(0,0,0), "BOT: OFF"
+toggleBtn.BackgroundTransparency, toggleBtn.TextColor3, toggleBtn.Font, toggleBtn.TextSize = 0.4, WHITE_COLOR, Enum.Font.FredokaOne, 13
+Instance.new("UICorner", toggleBtn)
+
+local modeBtn = Instance.new("TextButton", mainFrame)
+modeBtn.Size, modeBtn.Position = UDim2.new(1, -10, 0, 30), UDim2.new(0, 5, 0, 40)
+modeBtn.BackgroundColor3, modeBtn.Text = Color3.new(0,0,0), "MODE:  (PLAYER 5x5)"
+modeBtn.BackgroundTransparency, modeBtn.TextColor3, modeBtn.Font, modeBtn.TextSize = 0.4, WHITE_COLOR, Enum.Font.FredokaOne, 13
+Instance.new("UICorner", modeBtn)
+
+toggleBtn.MouseButton1Click:Connect(function()
+    _G.AUTO_COLLECT_ENABLED = not _G.AUTO_COLLECT_ENABLED
+    toggleBtn.Text = _G.AUTO_COLLECT_ENABLED and "BOT: ON" or "BOT: OFF"
+    if not _G.AUTO_COLLECT_ENABLED then isBotMoving = false end
+end)
+
+modeBtn.MouseButton1Click:Connect(function()
+    _G.COLLECT_MODE = (_G.COLLECT_MODE == "Full") and "Player" or "Full"
+    modeBtn.Text = (_G.COLLECT_MODE == "Full") and "MODE: FULL WORLD" or "MODE: PLAYER (5x5)"
+end)
+
+--------------------------------------------------------------------------------
+-- RUNTIME ENGINE
+--------------------------------------------------------------------------------
+task.spawn(function()
+    while true do
+        if _G.AUTO_COLLECT_ENABLED then
+            local drop = getValidTarget()
+            local hb = workspace.Hitbox:FindFirstChild("Hsyauzn")
+            
+            if drop and hb then
+                -- 1. SAVE HOME POSITION
+                local homePos = to2D(hb.Position)
+                local dropPos = to2D(drop.Position)
+                
+                -- 2. MOVE TO DROP
+                local pathToDrop = findPath(homePos, dropPos)
+                if pathToDrop then
+                    executePath(pathToDrop)
+                    task.wait(0.05) -- Small delay to ensure collection
+                    
+                    -- 3. RETURN TO HOME
+                    local currentPos = to2D(hb.Position)
+                    local pathToHome = findPath(currentPos, homePos)
+                    if pathToHome then
+                        executePath(pathToHome)
+                    end
+                end
+            else
+                task.wait(0.2)
+            end
+        else
+            task.wait(0.5)
+        end
+        task.wait(0.1)
+    end
+end)
+
+-- Physics Lockdown (Fixed: Only locks during active bot movement)
+RunService.Heartbeat:Connect(function()
+    if not _G.AUTO_COLLECT_ENABLED or not isBotMoving then return end
+    
+    movement.MoveX = 0 
+    movement.VelocityY = 0
+    movement.VelocityX = 0
+    movement.Position = Vector3.new(movement.Position.X, movement.Position.Y, 0)
+end)
