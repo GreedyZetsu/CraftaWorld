@@ -1,5 +1,3 @@
-getgenv().AutoPlantAndHarvest = true
-getgenv().Items = {"Grass", "Glass Pane", "Concrete", "Dirt Background", "Wooden Block"}   
 getgenv().StartatY = 7
 getgenv().EndatY = 37
 
@@ -8,21 +6,19 @@ _G.FarmerRunning = true
 
 -- [[ INTERNAL CONFIGURATION ]] --
 local PlaceY = {}
-for y = getgenv().StartatY, getgenv().EndatY, 3 do table.insert(PlaceY, y) end -- Moved in steps of 3 for 3x3 coverage
+-- We step by 3 to cover the character's reach (offset -1, 0, 1)
+for y = getgenv().StartatY, getgenv().EndatY, 3 do table.insert(PlaceY, y) end
 
 local TILE_SIZE = 4.5
-local MOVE_SPEED = 35 
+local MOVE_SPEED = 38 -- Optimized speed for block clearing
 local settings = { Enabled = true, VerifyRetries = 2 }
 
 -- [[ MODULES ]] --
 local rs = game:GetService("ReplicatedStorage")
 local run = game:GetService("RunService")
 local lplr = game.Players.LocalPlayer
-local Inventory = require(rs.Modules.Inventory)
-local ItemsManager = require(rs.Managers.ItemsManager)
 local WorldTilesData = require(rs:WaitForChild("WorldTiles"))
 local movement = require(lplr.PlayerScripts:WaitForChild("PlayerMovement"))
-local placeRemote = rs.Remotes.PlayerPlaceItem
 local fistRemote = rs.Remotes.PlayerFist
 
 -- [[ PHYSICS FREEZE ]] --
@@ -48,50 +44,34 @@ local function walkToGrid(targetX, targetY)
     end
 end
 
-local function isBlockAt(x, y, layer)
+-- Checks if Index 1 or Index 2 is occupied by any tile
+local function isOccupied(x, y)
     local cell = WorldTilesData[x] and WorldTilesData[x][y]
     if not cell then return false end
-    local tileEntry = cell[layer]
-    return tileEntry ~= nil
+    -- Return true if either Foreground (1) or Background (2) has data
+    return (cell[1] ~= nil or cell[2] ~= nil)
 end
 
-local function getBlockSlot()
-    for _, targetName in ipairs(getgenv().Items) do
-        for i = 1, (Inventory.MaxSlots or 50) do
-            local stack = Inventory.Stacks[i]
-            if stack and stack.Id and (stack.Amount or 1) > 0 then
-                local data = ItemsManager.RequestItemData(stack.Id)
-                if data and data.Name:lower():find(targetName:lower()) then return i end
-            end
+-- Clears both layers at a specific coordinate
+local function clearTile(tx, ty)
+    for layer = 1, 2 do
+        local retries = 0
+        -- Check if that specific layer has a block
+        while WorldTilesData[tx] and WorldTilesData[tx][ty] and WorldTilesData[tx][ty][layer] and retries < settings.VerifyRetries do
+            fistRemote:FireServer(Vector2.new(tx, ty), layer)
+            task.wait(0.07) -- Fast remote firing for instant blocks
+            retries = retries + 1
         end
     end
-    return nil
 end
 
--- NEW: Scans and clears the 3x3 area around the character
-local function workArea(charX, charY)
-    -- Loop from -1 to 1 on both axes (Relative to character 0)
+-- Scans the 3x3 area (Character = 0, Surroundings = 1 and -1)
+local function work3x3(charX, charY)
     for offsetX = -1, 1 do
         for offsetY = -1, 1 do
             local tx, ty = charX + offsetX, charY + offsetY
-            
-            -- Clear Layers 1 and 2
-            for layer = 1, 2 do
-                local retries = 0
-                while isBlockAt(tx, ty, layer) and retries < settings.VerifyRetries do
-                    fistRemote:FireServer(Vector2.new(tx, ty), layer)
-                    task.wait(0.08) -- Faster fire rate for area clear
-                    retries = retries + 1
-                end
-            end
-            
-            -- Optional: Auto Place
-            if getgenv().AutoPlantAndHarvest then
-                local slot = getBlockSlot()
-                if slot and not isBlockAt(tx, ty, 1) then
-                    placeRemote:FireServer(Vector2.new(tx, ty), slot, 1)
-                    task.wait(0.05)
-                end
+            if isOccupied(tx, ty) then
+                clearTile(tx, ty)
             end
         end
     end
@@ -99,47 +79,47 @@ end
 
 -- [[ MAIN EXECUTION ]] --
 task.spawn(function()
-    print("3x3 Area Block Farmer Active")
+    print("Dirt DF Clearer Active: Index 1 & 2")
 
-    -- PHASE 1: Vertical Clear Left (Handles X 0, 1, 2)
+    -- PHASE 1: Left Drop Clear (Covers X 0, 1, 2)
     for y = getgenv().EndatY, 7, -3 do
-        walkToGrid(1, y) -- Character stands at X=1
-        workArea(1, y)
+        walkToGrid(1, y) 
+        work3x3(1, y)
     end
 
-    -- PHASE 2: Vertical Clear Right (Handles X 97, 98, 99)
+    -- PHASE 2: Right Drop Clear (Covers X 97, 98, 99)
     for y = getgenv().EndatY, 7, -3 do
-        walkToGrid(98, y) -- Character stands at X=98
-        workArea(98, y)
+        walkToGrid(98, y)
+        work3x3(98, y)
     end
 
-    -- PHASE 3: Area Snake Pattern
+    -- PHASE 3: Main Farm Snake Pattern (3x3 stations)
     while true do
         for _, targetY in ipairs(PlaceY) do
             local currentX = Format3Dto2D(movement.Position.X)
             local startX = (currentX < 50) and 2 or 97
             local endX = (startX == 2) and 97 or 2
-            local step = (startX == 2) and 3 or -3 -- Move 3 tiles at a time
+            local step = (startX == 2) and 3 or -3 
 
             for xStation = startX, endX, step do
                 if not settings.Enabled then break end
                 
-                -- Check if ANY block exists in the 3x3 before moving there
-                local needsWork = false
-                for ox = -1, 1 do 
+                -- Optimization: Only walk to the station if there's something to break in the 3x3 area
+                local hasBlocks = false
+                for ox = -1, 1 do
                     for oy = -1, 1 do
-                        if isBlockAt(xStation + ox, targetY + oy, 1) or isBlockAt(xStation + ox, targetY + oy, 2) then
-                            needsWork = true; break 
+                        if isOccupied(xStation + ox, targetY + oy) then
+                            hasBlocks = true; break
                         end
                     end
                 end
 
-                if needsWork then
+                if hasBlocks then
                     walkToGrid(xStation, targetY)
-                    workArea(xStation, targetY)
+                    work3x3(xStation, targetY)
                 end
             end
         end
-        task.wait(1)
+        task.wait(0.5)
     end
 end)
