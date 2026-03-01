@@ -1,1 +1,384 @@
---[[ v1.0.0 https://wearedevs.net/obfuscator ]] return(function(...)local e={"\120\110\083\050\102\110\116\061","\072\089\077\079\078\088\054\099\079\116\097\074\116\082\079\110","";"\101\099\115\076\102\043\111\061","\049\099\083\053\101\110\118\055","\049\110\097\067\068\078\055\100\047\088\047\106\103\116\075\122\116\051\051\061";"\103\119\070\052\075\071\101\086\102\107\079\067\068\109\097\054";"\120\110\118\122\120\084\097\100\102\099\049\061";"\049\109\083\110\086\089\100\083\101\099\081\112\119\082\079\072";"\101\043\054\089\047\073\061\061";"\088\089\118\100\102\099\079\070\068\090\061\061","\102\082\120\114\119\078\113\106\054\106\100\107\075\083\101\097";"\102\078\083\056\103\090\061\061","\101\106\089\077\120\110\054\114","\075\070\070\072\116\107\070\089\103\075\112\115\103\122\054\116\072\116\113\061";"\116\075\047\043\079\083\097\115\119\119\077\070\103\075\082\122\054\090\061\061";"\103\056\113\043\072\099\055\109\102\083\073\043\049\109\079\080\075\122\082\061","\049\106\120\119\112\106\055\105\119\056\097\047\101\116\086\115","\069\050\073\070\101\108\114\100\069\073\061\061","\088\089\118\066\101\078\080\061","\049\099\075\055\102\043\101\070","\055\119\118\072","\101\088\097\052\102\043\111\061";"\120\110\118\053\120\078\089\050\101\088\111\061","\088\089\118\071\047\113\061\061","\101\099\082\089\054\106\081\051\054\084\112\089\072\110\097\111\116\113\061\061","\047\106\077\077\049\073\061\061";"\069\073\061\061";"\075\089\070\052\103\082\073\056\079\051\055\104\078\107\079\054\068\051\073\061";"\049\106\075\056\102\078\075\056\047\088\079\077\047\099\115\070";"\102\109\111\061","\068\070\100\083\119\089\101\054\075\088\051\052\079\082\117\061","\088\089\118\055\101\088\079\077\120\110\083\050\102\110\116\061";"\102\109\051\061";"\049\099\079\072\120\106\115\057\119\116\054\104\119\089\073\061","\075\110\083\055\049\110\075\052\111\051\079\070\120\110\075\107\120\110\075\082\111\112\061\061";"\049\119\082\043\072\051\056\080\101\078\081\119\103\070\070\075\101\073\061\061","\049\110\054\077\102\110\113\061";"\079\056\077\089\069\110\089\057\075\078\112\061";"\102\110\075\053","\047\071\070\056\101\112\061\061";"\049\043\079\052\103\078\081\071";"\120\078\081\113\047\078\054\067";"\047\106\118\053\047\106\083\056"}for M,P in ipairs({{685507+-685506,-629601+629645},{206058-206057;-516434-(-516468)};{-849423+849458;146064-146020}})do while P[912895-912894]<P[-886225+886227]do e[P[-1044014-(-1044015)]],e[P[291864-291862]],P[892990+-892989],P[-913215+913217]=e[P[845600+-845598]],e[P[476456-476455]],P[-742052-(-742053)]+(-585364+585365),P[964635+-964633]-(-235715-(-235716))end end local function M(M)return e[M-(779648-739443)]end do local M=string.len local P=string.char local Q=table.concat local U=type local D=math.floor local W={["\048"]=-524895-(-524926),["\054"]=-564657-(-564670),w=-198451+198470,k=183828+-183793,e=401373-401348;["\053"]=-492593+492639;t=1280-1260,x=-520216-(-520245),S=-353071+353076;r=-248329+248369,b=1043986+-1043928,Y=17468-17415,K=898246+-898225;M=569709-569676,R=552188-552152;G=-65972+66011;Q=-77327-(-77384);J=414697-414687;u=458220-458160,P=178398-178342;j=212158-212104;E=784488-784474;n=-555282+555288;A=1043232+-1043170,z=281653+-281602,m=-854194+854197;V=197478+-197466;["\056"]=203082-203030,["\047"]=-207475+207499,d=351482+-351441;["\050"]=-809079+809113,X=-565478+565501,H=1038212+-1038194,["\051"]=1024902+-1024898,o=-714764-(-714772);["\049"]=726904-726876;g=-531790+531816;F=-693530-(-693567);B=-769653-(-769697),Z=420870-420870;c=21434+-21396,O=-881442-(-881459);["\043"]=-329589+329644,C=-539866-(-539909);v=-555179-(-555240);y=897212+-897149,i=-378433+378475,W=1043607-1043596,["\057"]=-189430+189445;N=353516+-353494;f=-748087-(-748114),q=814725-814677;h=-582438+582439;U=144166-144107;s=801331+-801282;I=123552-123520;p=886100+-886084;["\052"]=1038811-1038761,["\055"]=23510-23465;T=-285885+285892;l=550305+-550303,a=36349+-36340,D=-319984-(-320014),L=-485830-(-485877)}local H=table.insert local E=string.sub local f=e for e=127947-127946,#f,198257-198256 do local B=f[e]if U(B)=="\115\116\114\105\110\103"then local U=M(B)local b={}local o=30285+-30284 local h=-972348+972348 local k=-271919+271919 while o<=U do local e=E(B,o,o)local M=W[e]if M then h=h+M*(727163-727099)^((-103470+103473)-k)k=k+(583189-583188)if k==104522-104518 then k=164012-164012 local e=D(h/(-672131+737667))local M=D((h%(493041-427505))/(417973+-417717))local Q=h%(78931+-78675)H(b,P(e,M,Q))h=896453-896453 end elseif e=="\061"then H(b,P(D(h/(150177+-84641))))if o>=U or E(B,o+(-760974+760975),o+(657378-657377))~="\061"then H(b,P(D((h%(256657-191121))/(-771811+772067))))end break end o=o+(564406-564405)end f[e]=Q(b)end end end return(function(e,Q,U,D,W,H,E,o,u,b,k,q,z,P,f,G,S,B,a,C,j,h)j,k,u,P,a,f,G,q,B,o,C,h,z,b,S=function(e)B[e]=B[e]-(861119-861118)if B[e]==-588853+588853 then B[e],f[e]=nil,nil end end,function(e)local M,P=-110686-(-110687),e[-816039-(-816040)]while P do B[P],M=B[P]-(-431519+431520),(-94889-(-94890))+M if B[P]==-691104+691104 then B[P],f[P]=nil,nil end P=e[M]end end,function(e,M)local Q=h(M)local U=function(U,D,W,H,E)return P(e,{U,D,W,H,E},M,Q)end return U end,function(P,U,D,W)local h,g,R,n,F,N,K,Z,t,w,y,c,r,B,X,o,v,E,q,s,i,L,J,m,T,l,Y,p,d,I,x,k,A,V while P do if P<9076628-32012 then if P<-962761+4839677 then if P<214219+1977457 then if P<-486448+1595714 then if P<1664586-733430 then if P<672352-(-139638)then if P<-773387+1191413 then o=f[D[-695387-(-695390)]]h=-854487+854614 B=o*h o=-333412-(-333669)E=B%o f[D[-150122-(-150125)]]=E P=8962659-(-510933)else E=M(-1006605+1046824)k=M(-271560-(-311807))P=e[E]c=M(713258-673025)B=f[D[151240+-151236]]I=S(402481+11217656,{})h=e[k]p=e[c]c={p(I)}p=422554-422552 R={Q(c)}q=R[p]k=h(q)h=M(-58605-(-98819))o=B(k,h)B={o()}E=P(Q(B))o=f[D[559946+-559941]]P=o and-90013+4516981 or 11194856-(-496285)B=E E=o end else h=436336+9236600 E=2567677-(-568606)o=M(871150+-830920)B=o^h P=E-B E=M(113175-72948)B=P P=E/B E={P}P=e[M(453518-413308)]end else if P<977080+-27848 then h=M(1036380-996143)p=M(897971+-857738)P=true k=b()B=U o=b()f[o]=P E=e[h]h=M(-622257-(-662466))P=E[h]h=b()q=b()c=u(13442326-836760,{q})f[h]=P P=C(3024532-(-249348),{})f[k]=P P=false f[q]=P R=e[p]p=R(c)P=p and 515004+13644164 or 13402720-984000 E=p else l=f[o]Z=l P=l and 211129+14862914 or-632678+14768261 end end else if P<1122129-(-380973)then if P<-286123+1715906 then P=10085742-(-479709)else I=j(I)J=nil d=nil q=j(q)R=nil c=nil m=nil p=j(p)A=nil w=j(w)c=M(-221708+261948)K=j(K)o=j(o)A=b()o=nil I=M(-220547+260784)R=M(-1017975+1058183)k=j(k)q=e[R]h=j(h)h=nil R=M(-339266+379509)k=q[R]p=M(-520312-(-560520))q=b()f[q]=k R=e[p]p=M(-350823+391067)k=R[p]p=e[c]J=-92194+92195 c=M(-742097-(-782313))R=p[c]c=e[I]w=-1029740+1029996 I=M(785745+-745523)p=c[I]c=122932+-122932 I=b()m={}f[I]=c c=996188-996186 K=b()f[K]=c c={}d={}f[A]=d d=331196+-331196 x=w P=10941555-842344 w=-87550+87551 T=w w=-459057-(-459057)r=T<w w=J-T end else if P<-686856+2574162 then P=true P=403307+15479832 else P=true P=P and 2722896-427144 or 8266398-(-413638)end end end else if P<3070162-94269 then if P<2412748-(-123723)then if P<768371+1667079 then if P<-787128+3211006 then E=M(889354+-849128)B=M(222233-182004)P=e[E]E=e[B]B=M(568789-528560)e[B]=P B=M(896466+-856240)e[B]=E B=f[D[-974332-(-974333)]]P=1518500-(-664728)o=B()else h=1032267-1032267 B=M(189984-149766)P=e[B]o=f[D[444735-444727]]B=P(o,h)P=347080+6939065 end else m=M(826348-786108)P=868356+8187311 A=e[m]m=M(626141+-585903)d=A[m]I=d end else if P<3371261-768469 then o=f[D[914516+-914514]]P=14080487-(-157699)h=f[D[920144-920141]]B=o==h E=B else x=1046914-1046914 P=396813+15919622 w=#m J=w==x end end else if P<2566285-(-779889)then if P<525911+2742016 then h=h+q p=not R o=h<=k o=p and o p=h>=k p=R and p o=p or o p=-964796+17249785 P=o and p o=-173851+14622354 P=P or o else E=M(-164630+204848)B=M(1040965+-1000734)P=e[E]E=P(B)E={}P=e[M(-818624+858865)]end else if P<3635518-5258 then E=X P=v P=4997288-759791 else v=f[o]P=v and-149865+6999303 or-498219+16274768 X=v end end end end else if P<5949968-(-904904)then if P<6383462-851827 then if P<4338509-(-59411)then if P<3547388-(-791333)then if P<4357541-96335 then P=11027644-847384 f[o]=E else P=true P=P and 1538687-117193 or 16579739-696600 end else L=M(-280455+320702)P=e[L]T=M(-355308-(-395537))x=e[T]L=P(x)P=M(-657076-(-697302))e[P]=L P=1042545+13201486 end else if P<4013662-(-488025)then h=f[D[689812+-689806]]P=-683919+12375060 o=h==B E=o else x=466702+-466702 w=#m J=w==x P=J and 8530707-416054 or-211211+16527646 end end else if P<-881706+7109223 then if P<-728474+6837296 then v=P s=-996806+996807 g=i[s]s=false y=g==s X=y P=y and 642415+10707165 or 249489+3133413 else P=f[D[822078-822071]]P=P and 2866051-430748 or 8226146-940001 end else if P<6556379-92556 then h=714081+-714049 o=f[D[97853-97850]]B=o%h I=-7844-(-7846)k=f[D[-641322-(-641326)]]p=f[D[-56649-(-56651)]]J=f[D[403931+-403928]]m=J-B d=63813+-63800 J=-318858+318890 A=m/J K=d-A c=I^K R=p/c q=k(R)k=75230+4294892066 h=q%k q=267922-267920 k=q^B o=h/k c=864272-864271 P=-880529+12104493 k=f[D[-881587+881591]]p=o%c c=815908+4294151388 B=nil R=p*c p=279058+-213522 q=k(R)k=f[D[-423981-(-423985)]]R=k(o)h=q+R q=708666-643130 d=976891-976635 k=h%q o=nil R=h-k q=R/p p=-9522-(-9778)R=k%p h=nil I=171980+-171724 c=k-R p=c/I I=633344+-633088 c=q%I K=q-c I=K/d K={R;p,c,I}I=nil c=nil R=nil f[D[-1008179-(-1008180)]]=K q=nil p=nil k=nil else y=976586+-976585 v=i[y]X=v P=-1039431+16815980 end end end else if P<-46254+8207972 then if P<1045663+6850525 then if P<7589360-94982 then if P<7135424-(-114721)then B=f[D[-622525-(-622526)]]E=#B B=258307-258307 P=E==B P=P and 14633022-306751 or 11312360-88396 else P={}B=P o=-63787+63788 P=2524604-(-743250)h=f[D[123969-123960]]k=h h=1043158+-1043157 q=h h=788088+-788088 R=q<h h=o-q end else P=199463+1983765 end else if P<8122970-146333 then T=not x Z=Z+L E=Z<=l E=T and E T=Z>=l T=x and T E=T or E T=11714717-731628 P=E and T E=623419+394025 P=P or E else t={}J={}d=nil y=nil c=nil w=b()k=nil x=C(6602548-(-575389),{w,I,K;q})f[w]=J r=M(754083-713858)R=nil T=b()J=b()q=j(q)m=nil f[J]=x P=e[M(-848656+888902)]n=M(-579742-(-619948))x={}f[T]=x p=nil x=e[r]Y=f[T]i=M(622718+-582490)F={[n]=Y;[i]=y}r=x(t,F)o=r x=a(10412764-985657,{T,w,A,I;K;J})R=M(-901540-(-941757))A=j(A)h=x w=j(w)T=j(T)K=j(K)p=21058008593432-495051 J=j(J)q=h(R,p)I=j(I)k=o[q]E={k}end end else if P<990794+7726053 then if P<9286118-651099 then P=10486622-762506 K=M(-467323-(-507561))I=e[K]E=I else P=e[M(558583-518335)]E={}end else if P<9555225-725836 then L=M(-604496-(-644733))l=e[L]c=K L=M(844546+-804310)Z=l[L]l=Z(B,c)Z=f[D[-470682+470688]]L=Z()w=l+L J=w+R w=366751+-366495 m=J%w P=-474354+9513590 R=m w=h[o]L=-118931-(-118932)l=R+L Z=k[l]J=w..Z h[o]=J c=nil else K=K+d c=K<=I m=not A c=m and c m=K>=I m=A and m c=m or c m=9249163-497546 P=c and m c=857155+10902763 P=P or c end end end end end else if P<897688+11148374 then if P<449522+9780164 then if P<-764371+10210405 then if P<8291405-(-973762)then if P<8554049-(-650709)then if P<859650+8289172 then E=I P=K P=I and 10364266-640150 or 964708+7288401 else P=465229+15252012 end else x=M(989176+-948950)P=e[x]x=M(407783+-367554)e[x]=P P=14625254-381223 end else if P<352883+8974984 then J=w t=J P=10479216-380005 m[J]=t J=nil else B=U[-524799-(-524800)]o=U[-635765+635767]P=f[D[-619035+619036]]h=P P=h[o]P=P and 8168570-(-987398)or-987535+17237964 end end else if P<9981835-7453 then if P<-149885+9860148 then o=f[D[611240-611237]]h=-90557+90558 B=o~=h P=B and-885952+7122047 or-781851+1117042 else K=-588079-(-588082)J=G(-411126+1268020,{})d=-697209+697274 L=M(647863-607616)I=b()f[I]=E P=f[p]m=M(-1001141+1041374)E=P(K,d)K=b()P=13053+-13053 d=P f[K]=E P=-522097-(-522097)A=P E=e[m]m={E(J)}P={Q(m)}E=819275-819273 m=P P=m[E]J=P E=M(841947-801728)P=e[E]w=f[h]l=e[L]L=l(J)l=M(593488-553274)Z=w(L,l)w={Z()}E=P(Q(w))P=7274612-(-624538)w=b()f[w]=E Z=f[K]E=-778879+778880 l=Z Z=-381501+381502 L=Z Z=610751-610751 x=L<Z Z=E-L end else if P<10382651-263116 then t=not r w=w+T J=w<=x J=t and J t=w>=x t=r and t J=t or J t=169417+9108987 P=J and t J=3329167-725218 P=P or J else i=nil r=j(r)F=j(F)Y=j(Y)n=j(n)t=j(t)T=j(T)P=7352729-(-546421)end end end else if P<610601+11055498 then if P<11143541-(-156775)then if P<11115443-69064 then if P<10494908-(-302807)then P=true P=P and 160412+11628935 or-48209+11972747 else r=M(-510069+550277)T=b()f[T]=Z E=e[r]r=M(771141+-730897)i=665784+-665782 P=E[r]Y=-415703+415704 F=824415+-824160 N=853313-843313 r=18133+-18132 t=-97337-(-97437)E=P(r,t)r=b()t=243693-243693 f[r]=E P=f[p]E=P(t,F)F=376221+-376220 V=-820665-(-820665)t=b()f[t]=E P=f[p]n=f[r]E=P(F,n)F=b()f[F]=E E=f[p]n=E(Y,i)E=-985328+985329 P=n==E n=b()E=M(-972579+1012793)y=M(-684874-(-725121))i=M(634587+-594364)f[n]=P v=e[y]P=M(-434598-(-474847))g=f[p]s={g(V,N)}P=J[P]y=v(Q(s))v=M(56900-16677)X=y..v Y=i..X i=M(810582-770349)P=P(J,E,Y)Y=b()X=S(-91909+13869176,{p,T,K,h;o,w,n;Y,r,F;t,I})f[Y]=P E=e[i]i={E(X)}P={Q(i)}i=P P=f[n]P=P and 15192757-42085 or-823251+4478323 end else P=e[M(909794+-869573)]h=M(22660+17580)o=e[h]h=M(764444+-724228)B=o[h]h=f[D[762999+-762998]]o={B(h)}E={Q(o)}end else if P<12189193-670689 then s=-331752+331754 P=2355440-(-1027462)g=i[s]s=f[Y]y=g==s X=y else o=M(-879726+919937)h=898080-(-781869)B=o^h E=-256354+3235230 P=E-B E=M(924303+-884069)B=P P=E/B E={P}P=e[M(909174-868961)]end end else if P<695195+11092813 then if P<11944334-253079 then B=nil P=-184902+6329793 f[D[-86473-(-86478)]]=E else P=-871714+16588955 p=nil k=nil R=nil end else if P<740757+11085245 then L=-25760+25761 x=-239414-(-239420)P=f[p]l=P(L,x)x=M(46016+-5790)P=M(-469084-(-509310))e[P]=l L=e[x]x=-272551+272553 P=L>x P=P and 364290+4010289 or 8283182-(-937063)else P=e[M(-867462-(-907674))]E={}end end end end else if P<468983+13933207 then if P<15004183-857407 then if P<13513752-(-153317)then if P<945985+12108583 then if P<11806223-(-770544)then c=M(-656365-(-696605))R=E p=M(329117+-288909)E=e[p]p=M(968736-928492)A=M(913336+-873096)P=E[p]p=b()f[p]=P E=e[c]c=M(818596-778357)P=E[c]c=P d=e[A]K=P I=d P=d and 3047535-603027 or 979061+8076606 else P=true E={}f[D[944731-944730]]=P P=e[M(-268378+308585)]end else P=749927-(-684708)end else if P<502025+13460492 then q=459997+-459995 o=f[D[-999022+999023]]k=-761363-(-761364)h=o(k,q)o=-524047-(-524048)B=h==o E=B P=B and 15178760-940574 or 543133+2002638 else f[o]=Z P=f[o]P=P and 13279737-(-363619)or 664718-(-899962)end end else if P<14399562-158971 then if P<14641204-459513 then R=f[q]P=782054+11636666 E=R else P=E and-914477+1604025 or 696763+5448128 end else if P<-382239+14641428 then P=11367283-801832 else h=199294-199153 o=f[D[-301642+301644]]B=o*h o=6179580641775-308914 E=B+o B=431039+35184371657793 P=E%B f[D[-122630-(-122632)]]=P B=f[D[-355109+355112]]P=1027585-692394 o=-227446+227447 E=B~=o end end end else if P<221380+15637337 then if P<16236558-633040 then if P<161083+14919003 then if P<395865+14078456 then P=f[D[-269111+269121]]o=f[D[161514-161503]]B[P]=o P=f[D[616344+-616332]]o={P(B)}P=e[M(-368096-(-408320))]E={Q(o)}else l=d==A P=14873445-737862 Z=l end else X=f[o]E=X P=X and 4977128-(-976368)or 5243412-1005915 end else if P<16132152-412231 then E={o}P=e[M(627151+-586919)]else V=317732+-317731 f[o]=X s=f[F]g=s+V y=i[g]v=d+y y=-1044507+1044763 P=v%y d=P g=f[t]y=A+g g=-460165-(-460421)v=y%g P=11082720-902460 A=v end end else if P<527647+15729942 then if P<915840+15132005 then P=z(7648271-(-112027),{k})l={P()}P=e[M(-827166+867411)]E={Q(l)}else P={}q=35184372657523-568691 f[D[22620-22618]]=P E=f[D[-1046271-(-1046274)]]K=-499531-(-499532)k=E E=o%q p=862639+-862384 f[D[309744-309740]]=E R=o%p c=M(935201+-894964)p=-687521-(-687523)q=R+p f[D[1017854+-1017849]]=q p=e[c]c=M(313351+-273116)R=p[c]p=R(B)R=M(-69741+109983)h[o]=R d=K c=-358328-(-358329)I=p K=-396775-(-396775)A=d<K R=-524382-(-524605)P=10055162-1015926 K=c-d end else if P<16843629-532930 then I=-462130-(-462385)P=f[D[-852480-(-852481)]]o=h c=-674941-(-674941)p=P(c,I)B[o]=p o=nil P=397028+2870826 else x=#m w=-25173-(-25174)J=k(w,x)w=R(m,J)J=nil x=f[A]t=-942194-(-942195)r=w-t T=p(r)x[w]=T P=330524+4254437 w=nil end end end end end end end P=#W return Q(E)end,function(e,M)local Q=h(M)local U=function(U,D,W,H,E,f,B)return P(e,{U,D;W,H;E;f;B},M,Q)end return U end,{},function(e,M)local Q=h(M)local U=function(U,D,W,H)return P(e,{U,D,W,H},M,Q)end return U end,function(e,M)local Q=h(M)local U=function(...)return P(e,{...},M,Q)end return U end,{},-537225-(-537225),function(e,M)local Q=h(M)local U=function(U,D,W)return P(e,{U;D;W},M,Q)end return U end,function(e)for M=-847387-(-847388),#e,963857+-963856 do B[e[M]]=B[e[M]]+(-389610-(-389611))end if U then local P=U(true)local Q=W(P)Q[M(-554805-(-595011))],Q[M(-784188-(-824408))],Q[M(-144285-(-184500))]=e,k,function()return-886232+-17525 end return P else return D({},{[M(1023489+-983269)]=k;[M(732046+-691840)]=e;[M(-384823+425038)]=function()return-892189+-11568 end})end end,function(e,M)local Q=h(M)local U=function(U)return P(e,{U},M,Q)end return U end,function()o=(-776326+776327)+o B[o]=456791+-456790 return o end,function(e,M)local Q=h(M)local U=function()return P(e,{},M,Q)end return U end return(q(126453+811972,{}))(Q(E))end)(getfenv and getfenv()or _ENV,unpack or table[M(13089-(-27149))],newproxy,setmetatable,getmetatable,select,{...})end)(...)
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+local uis = game:GetService("UserInputService")
+
+-- Managers & Modules
+local WorldTilesData = require(ReplicatedStorage:WaitForChild("WorldTiles"))
+local ItemsManager = require(ReplicatedStorage.Managers.ItemsManager)
+local WorldManager = require(ReplicatedStorage:WaitForChild("Managers"):WaitForChild("WorldManager"))
+local movement = require(Players.LocalPlayer.PlayerScripts.PlayerMovement)
+
+-- [[ INITIAL CONFIG ]] --
+local TILE_SIZE = 4.5
+
+local settings = {
+    Enabled = true,
+    StepInterval = 0.06,
+    AutoPathing = false,
+    AutoPunch = true,
+    CurrentStatus = "Idle"
+}
+
+-- Blocks that get fully cleared when in path
+local AllowedBlocks = {
+    ["Dirt"] = true,
+    ["Dirt Background"] = true,
+    ["Stone"] = true,
+    ["Magma"] = true,
+    ["Obsidian"] = true,
+    ["Granite"] = true
+}
+
+-- Magma only at offset +1 and -1 (side tiles)
+local MagmaOnlyOffsets = { 1, -1 }
+
+--------------------------------------------------------------------------------
+-- DRAGGABLE
+--------------------------------------------------------------------------------
+local function makeDraggable(frame)
+    local dragging, dragInput, dragStart, startPos
+    frame.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragStart = input.Position
+            startPos = frame.Position
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then dragging = false end
+            end)
+        end
+    end)
+    frame.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
+        end
+    end)
+    uis.InputChanged:Connect(function(input)
+        if input == dragInput and dragging then
+            local delta = input.Position - dragStart
+            frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+        end
+    end)
+end
+
+--------------------------------------------------------------------------------
+-- GRID HELPERS
+--------------------------------------------------------------------------------
+local function getCurrentGrid()
+    local curX = math.round(movement.Position.X / TILE_SIZE)
+    local curY = math.round(movement.Position.Y / TILE_SIZE)
+    return curX, curY
+end
+
+local function getTileSlotName(gx, gy, slot)
+    local data = WorldTilesData[gx] and WorldTilesData[gx][gy]
+    if data and data[slot] then
+        local itemId = (type(data[slot]) == "table") and data[slot][1] or data[slot]
+        local baseData = ItemsManager.RequestItemData(tostring(itemId))
+        return baseData and baseData.Name or "Unknown"
+    end
+    return "None"
+end
+
+-- Live detection via WorldManager
+local function isTargetOccupied(gx, gy)
+    return WorldManager.GetTile(gx, gy, 1) ~= nil or WorldManager.GetTile(gx, gy, 2) ~= nil
+end
+
+local function getTileName(gx, gy)
+    local id = WorldManager.GetTile(gx, gy, 1) or WorldManager.GetTile(gx, gy, 2)
+    if not id then return nil end
+    local ok, name = pcall(function() return ItemsManager.GetName(id) end)
+    return ok and name or nil
+end
+
+local function isMagma(gx, gy)
+    local name = getTileName(gx, gy)
+    return name == "Magma"
+end
+
+--------------------------------------------------------------------------------
+-- CLEAR LOGIC
+--------------------------------------------------------------------------------
+local function waitUntilClear(gx, gy, timeout)
+    timeout = timeout or 5.0
+    local fistRemote = ReplicatedStorage:WaitForChild("Remotes"):WaitForChild("PlayerFist")
+    local startTime = tick()
+
+    while settings.AutoPathing do
+        if (tick() - startTime) >= timeout then
+            warn(string.format("[AutoPath] Timeout clearing (%d, %d) — skipping", gx, gy))
+            break
+        end
+        local hasFG = WorldManager.GetTile(gx, gy, 1)
+        local hasBG = WorldManager.GetTile(gx, gy, 2)
+        if not hasFG and not hasBG then break end
+        fistRemote:FireServer(Vector2.new(gx, gy))
+        task.wait(0.05)
+    end
+end
+
+local function clearCoordinate(gx, gy)
+    local hasFG = WorldManager.GetTile(gx, gy, 1)
+    local hasBG = WorldManager.GetTile(gx, gy, 2)
+    if not hasFG and not hasBG then return end
+    waitUntilClear(gx, gy, 5.0)
+end
+
+local function clearStackAtX(gx, gy)
+    -- offset +2 and -2: full AllowedBlocks clear
+    for _, offset in ipairs({2, -2}) do
+        if isTargetOccupied(gx, gy + offset) then
+            clearCoordinate(gx, gy + offset)
+            task.wait(0.05)
+        end
+    end
+
+    -- center tile: full AllowedBlocks clear
+    if isTargetOccupied(gx, gy) then
+        clearCoordinate(gx, gy)
+        task.wait(0.05)
+    end
+
+    -- offset +1 and -1: ONLY punch if it's Magma
+    for _, offset in ipairs(MagmaOnlyOffsets) do
+        if isMagma(gx, gy + offset) then
+            clearCoordinate(gx, gy + offset)
+            task.wait(0.05)
+        end
+    end
+
+    -- Verification re-pass (all 5 offsets)
+    local retryLimit = 3
+    for attempt = 1, retryLimit do
+        local allClear = true
+
+        -- Full clear check for +2, 0, -2
+        for _, offset in ipairs({2, 0, -2}) do
+            if isTargetOccupied(gx, gy + offset) then
+                allClear = false
+                warn(string.format("[clearStack] Re-clearing (%d, %d) attempt %d", gx, gy + offset, attempt))
+                clearCoordinate(gx, gy + offset)
+                task.wait(0.05)
+            end
+        end
+
+        -- Magma-only check for +1 and -1
+        for _, offset in ipairs(MagmaOnlyOffsets) do
+            if isMagma(gx, gy + offset) then
+                allClear = false
+                warn(string.format("[clearStack] Re-clearing Magma (%d, %d) attempt %d", gx, gy + offset, attempt))
+                clearCoordinate(gx, gy + offset)
+                task.wait(0.05)
+            end
+        end
+
+        if allClear then break end
+        task.wait(0.1)
+    end
+end
+
+--------------------------------------------------------------------------------
+-- POSITION LOCK
+--------------------------------------------------------------------------------
+local lockedPosition = nil
+
+local function snapToGrid(pos)
+    local gx = math.round(pos.X / TILE_SIZE)
+    local gy = math.round(pos.Y / TILE_SIZE)
+    return Vector3.new(gx * TILE_SIZE, gy * TILE_SIZE, 0)
+end
+
+RunService.RenderStepped:Connect(function()
+    if settings.AutoPathing and lockedPosition then
+        movement.Position = lockedPosition
+        movement.OldPosition = lockedPosition
+        movement.VelocityX = 0
+        movement.VelocityY = 0
+        movement.MoveX = 0
+    end
+end)
+
+--------------------------------------------------------------------------------
+-- GRID MOVEMENT
+--------------------------------------------------------------------------------
+local function gridMoveTo(targetX, targetY)
+    local moveRemote = ReplicatedStorage:FindFirstChild("Hsyauzn", true)
+
+    while settings.AutoPathing do
+        local curX, curY = getCurrentGrid()
+        if curX == targetX and curY == targetY then
+            lockedPosition = Vector3.new(targetX * TILE_SIZE, targetY * TILE_SIZE, 0)
+            movement.Position = lockedPosition
+            movement.OldPosition = lockedPosition
+            movement.VelocityX, movement.VelocityY = 0, 0
+            break
+        end
+
+        local nextX = curX + (targetX > curX and 1 or (targetX < curX and -1 or 0))
+        local nextY = curY + (targetY > curY and 1 or (targetY < curY and -1 or 0))
+
+        if isTargetOccupied(nextX, nextY) then
+            clearCoordinate(nextX, nextY)
+        end
+
+        lockedPosition = Vector3.new(nextX * TILE_SIZE, nextY * TILE_SIZE, 0)
+        movement.Position = lockedPosition
+        movement.OldPosition = lockedPosition
+        movement.VelocityX, movement.VelocityY = 0, 0
+
+        if moveRemote then
+            moveRemote:FireServer({ Vector2.new(lockedPosition.X, lockedPosition.Y) })
+        end
+
+        task.wait(settings.StepInterval)
+    end
+
+    if not settings.AutoPathing then
+        lockedPosition = nil
+    end
+end
+
+local function clearWidthAtY(gx1, gx2, gy)
+    clearCoordinate(gx1, gy)
+    clearCoordinate(gx2, gy)
+end
+
+--------------------------------------------------------------------------------
+-- AUTOMATION ROUTINE
+--------------------------------------------------------------------------------
+local ToggleBtn -- forward declare so runAutomation can reference it
+
+local function runAutomation()
+    settings.CurrentStatus = "Initializing..."
+    local hurtMeRemote = ReplicatedStorage:WaitForChild("Remotes"):WaitForChild("PlayerHurtMe")
+    hurtMeRemote:FireServer(100)
+    task.wait(1)
+
+    -- Phase 1: Left Columns
+    settings.CurrentStatus = "To 0,37"
+    gridMoveTo(0, 37)
+
+    settings.CurrentStatus = "Clearing 0 & 1"
+    for y = 37, 6, -1 do
+        if not settings.AutoPathing then break end
+        clearWidthAtY(0, 1, y)
+        gridMoveTo(0, y)
+    end
+
+    -- Phase 2: Cross Map
+    settings.CurrentStatus = "Returning to Top"
+    gridMoveTo(0, 37)
+    settings.CurrentStatus = "Crossing Map"
+    gridMoveTo(100, 37)
+
+    -- Phase 3: Right Columns
+    settings.CurrentStatus = "Clearing 99 & 100"
+    for y = 37, 6, -1 do
+        if not settings.AutoPathing then break end
+        clearWidthAtY(99, 100, y)
+        gridMoveTo(100, y)
+    end
+
+    -- Phase 4: Snake
+    settings.CurrentStatus = "Reposition to 100,9"
+    gridMoveTo(100, 9)
+
+    local currentY = 9
+    local iteration = 0
+
+    while settings.AutoPathing do
+        if currentY > 60 then break end
+
+        local isMovingLeft = (iteration % 2 == 0)
+        local xStart = isMovingLeft and 100 or 0
+        local xEnd = isMovingLeft and 0 or 100
+        local step = isMovingLeft and -1 or 1
+
+        settings.CurrentStatus = "Snake Y:" .. currentY
+
+        gridMoveTo(xStart, currentY)
+        for x = xStart, xEnd, step do
+            if not settings.AutoPathing then break end
+            clearStackAtX(x, currentY)
+            gridMoveTo(x, currentY)
+        end
+
+        if currentY == 9 then
+            currentY = 15
+        else
+            currentY = currentY + 6
+        end
+        iteration = iteration + 1
+    end
+
+    settings.AutoPathing = false
+    lockedPosition = nil
+    settings.CurrentStatus = "Idle"
+    ToggleBtn.Text = "▶ START"
+    ToggleBtn.BackgroundColor3 = Color3.fromRGB(0, 170, 80)
+end
+
+--------------------------------------------------------------------------------
+-- UI — tiny toggle button only
+--------------------------------------------------------------------------------
+local screenGui = Instance.new("ScreenGui", Players.LocalPlayer:WaitForChild("PlayerGui"))
+screenGui.Name = "ScannerSnakeSystem"
+screenGui.ResetOnSpawn = false
+
+local controlFrame = Instance.new("Frame", screenGui)
+controlFrame.Size = UDim2.new(0, 160, 0, 60)
+controlFrame.Position = UDim2.new(0, 20, 0.5, -30)
+controlFrame.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
+controlFrame.BackgroundTransparency = 0.15
+controlFrame.Active = true
+local cfCorner = Instance.new("UICorner", controlFrame)
+cfCorner.CornerRadius = UDim.new(0, 10)
+local cfStroke = Instance.new("UIStroke", controlFrame)
+cfStroke.Color = Color3.fromRGB(0, 162, 255)
+cfStroke.Thickness = 1.5
+makeDraggable(controlFrame)
+
+local StatusLbl = Instance.new("TextLabel", controlFrame)
+StatusLbl.Size = UDim2.new(1, 0, 0.4, 0)
+StatusLbl.Position = UDim2.new(0, 0, 0, 4)
+StatusLbl.BackgroundTransparency = 1
+StatusLbl.TextColor3 = Color3.fromRGB(0, 200, 255)
+StatusLbl.TextSize = 11
+StatusLbl.Font = Enum.Font.SourceSansBold
+StatusLbl.Text = "● Idle"
+
+ToggleBtn = Instance.new("TextButton", controlFrame)
+ToggleBtn.Size = UDim2.new(0.88, 0, 0.48, 0)
+ToggleBtn.Position = UDim2.new(0.06, 0, 0.46, 0)
+ToggleBtn.BackgroundColor3 = Color3.fromRGB(0, 170, 80)
+ToggleBtn.Text = "▶ START"
+ToggleBtn.TextColor3 = Color3.new(1, 1, 1)
+ToggleBtn.TextSize = 13
+ToggleBtn.Font = Enum.Font.SourceSansBold
+local tbCorner = Instance.new("UICorner", ToggleBtn)
+tbCorner.CornerRadius = UDim.new(0, 7)
+
+--------------------------------------------------------------------------------
+-- HEARTBEAT — status label only
+--------------------------------------------------------------------------------
+RunService.Heartbeat:Connect(function()
+    StatusLbl.Text = "● " .. settings.CurrentStatus
+end)
+
+--------------------------------------------------------------------------------
+-- TOGGLE
+--------------------------------------------------------------------------------
+ToggleBtn.MouseButton1Click:Connect(function()
+    settings.AutoPathing = not settings.AutoPathing
+    if not settings.AutoPathing then
+        lockedPosition = nil
+        settings.CurrentStatus = "Idle"
+        ToggleBtn.Text = "▶ START"
+        ToggleBtn.BackgroundColor3 = Color3.fromRGB(0, 170, 80)
+    else
+        ToggleBtn.Text = "■ STOP"
+        ToggleBtn.BackgroundColor3 = Color3.fromRGB(200, 40, 40)
+        task.spawn(runAutomation)
+    end
+end)
